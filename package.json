@@ -1,19 +1,50 @@
 {
-  "name": "zhjingblog",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "zhjing-blog",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/zhjing1019/zhjingBlog.git"
+  "dependencies": {
+    "element-ui": "^2.9.1",
+    "quill": "^1.3.6",
+    "sass-loader": "^7.1.0",
+    "vue": "^2.5.17",
+    "vue-quill-editor": "^3.0.6",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/zhjing1019/zhjingBlog/issues"
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.4",
+    "@vue/cli-plugin-eslint": "^3.0.4",
+    "@vue/cli-service": "^3.0.4",
+    "node-sass": "^4.10.0",
+    "vue-template-compiler": "^2.5.17"
   },
-  "homepage": "https://github.com/zhjing1019/zhjingBlog#readme"
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
 }
