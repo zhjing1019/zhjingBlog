@@ -8,11 +8,13 @@
                     v-model="searchText">
                 </el-input>
             </div>
-            <ul class="header-type">
-                <li v-for="(item, index) in headerNav" :key="index">{{item.text}}</li>
-            </ul>
-            <img class="logo-img" src="@/img/logo.png" alt="">
-            <span class="logo-text">测试测试</span>
+
+            <div class="head-tab">
+                <el-tabs v-model="activeName" @tab-click="handleClick">
+                    <el-tab-pane v-for="(item, index) in headerNav" :key="index" :label="item.text" :name="`${index}`"></el-tab-pane> 
+                </el-tabs>
+            </div>
+            <img class="logo-img" src="@/img/verterLogo.png" alt="">
         </div>
     </div>
 </template>
@@ -23,20 +25,31 @@ export default {
             searchText: "",
             headerNav:[
                 {
-                    id: 1,
-                    text: '测试测试'
+                    id: '1',
+                    text: '首页',
+                    path: 'protal'
                 },
                 {
-                    id: 1,
-                    text: '测试测试'
+                    id: '2',
+                    text: '文章',
+                    path: 'home',
                 },
                 {
-                    id: 1,
-                    text: '测试测试'
+                    id: '3',
+                    text: '热门',
+                    path: 'protal'
                 },
-            ]
+            ],
+            activeName: ''
+ 
         };
     },
+    methods: {
+        handleClick() {
+            this.$router.push({ path: `/${this.headerNav[this.activeName].path}` });
+        }
+ 
+    }
 }
 </script>
 
@@ -57,24 +70,24 @@ export default {
                 float: right;
             }
         }
-        .header-type{
+        .head-tab{
             float: right;
             height: 60px;
             list-style: none;
-            li{
-                float: right;
-                height: 60px;
-                line-height: 60px;
-                padding: 0 20px;
-                color: #71777c;
-                font-size: 16px;
+            margin-right: 20px;
+            .el-tabs__content{
+                display: none;
+            }
+            .el-tabs__nav-wrap::after{
+                background: transparent;
             }
         }
         .logo-img{
-            width: 50px;
+            // width: 50px;
             height: 50px;
             vertical-align: middle;
             margin-right: 10px;
+            margin-top: -3px;
         }
         .logo-text{
             font-size: 20px;
