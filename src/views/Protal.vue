@@ -9,11 +9,14 @@
                     </div>
                 </el-carousel-item>
             </el-carousel>
+            <div class="introduce-main">
+                <introduce-card></introduce-card>
+            </div>
         </div>
     </div>
 </template>
 <script>
-
+import IntroduceCard from "@/components/IntroduceCard"
 export default {
     data() {
         return {
@@ -40,6 +43,9 @@ export default {
                 },
             ],
         };
+    },
+    components: {
+        IntroduceCard
     },
     methods: {
         bannerClick(item) {
@@ -82,7 +88,9 @@ export default {
                 margin-left: -150px;
 
             }
-
+        }
+        .introduce-main{
+            margin-top: 20px;
         }
     }
 }
