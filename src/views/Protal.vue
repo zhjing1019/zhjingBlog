@@ -12,40 +12,25 @@
             <div class="introduce-main">
                 <introduce-card></introduce-card>
             </div>
+            <div class="label-list-div">
+                <time-line></time-line>
+            </div>
         </div>
     </div>
 </template>
 <script>
 import IntroduceCard from "@/components/IntroduceCard"
+import TimeLine from "@/components/TimeLine"
+import { labelList } from "@/common/config.js"
 export default {
     data() {
         return {
-            arr: [
-                {
-                    img: 'banner1',
-                    title: '前端',
-                    path: ''
-                },
-                {
-                    img: 'banner2',
-                    title: 'JAVA',
-                    path: ''
-                },
-                {
-                    img: 'banner4',
-                    title: 'Python',
-                    path: ''
-                },
-                {
-                    img: 'banner5',
-                    title: '安全',
-                    path: ''
-                },
-            ],
+            arr: labelList
         };
     },
     components: {
-        IntroduceCard
+        IntroduceCard,
+        TimeLine
     },
     methods: {
         bannerClick(item) {
@@ -71,6 +56,8 @@ export default {
             img{
                 width: 100%;
                 height: 100%;
+                cursor: pointer;
+                transition: all 0.5s; /* 所有的属性变化在0.5s的时间段内完成 */
             }
             h3{
                 width: 300px;
@@ -86,11 +73,17 @@ export default {
                 top: 50%;
                 left: 50%;
                 margin-left: -150px;
-
+                z-index: 2;
+            }
+            &:hover img{
+                transform: scale(1.2); /* 鼠标放到图片上的时候图片按比例放大1.5倍   */
             }
         }
         .introduce-main{
             margin-top: 20px;
+        }
+        .label-list-div{
+            margin-top: 30px;
         }
     }
 }

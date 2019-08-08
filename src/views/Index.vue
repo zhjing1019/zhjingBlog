@@ -10,16 +10,12 @@
 </template>
 <script>
 import HeaderFix from "@/components/HeaderFix.vue"
-import ListItem from "@/components/ListItem.vue"
-import NavDivider from "@/components/NavDivider.vue"
-import RightBanner from "@/components/RightBanner.vue"
+
 export default {
     data() {
-        return {
-            testData: ['test', 'test', 'test', 'test', 'test', 'test', 'test']
-        };
+        return {};
     },
-    components: {HeaderFix, ListItem, NavDivider, RightBanner}
+    components: {HeaderFix}
 }
 </script>
 

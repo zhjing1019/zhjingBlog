@@ -6,6 +6,10 @@
                     <img :src="require('@/img/guoliaoImg.jpg')" alt="">
                     <p>北漂程序猿</p>
                     <p>热爱编程</p>
+                    <div class="github">
+                        github: 
+                        <a href="https://github.com/guoliao502" target="_blank">https://github.com/guoliao502</a>
+                    </div>
                 </el-card>
             </el-col>
             <el-col :span="4" class="introduce-center">
@@ -16,6 +20,11 @@
                     <img :src="require('@/img/zhangjingImg.jpg')" alt="">
                     <p>北漂程序媛</p>
                     <p>热爱生活</p>
+
+                    <div class="github">
+                        github: 
+                        <a href="https://github.com/guoliao502" target="_blank">https://github.com/zhjing1019</a>
+                    </div>
                 </el-card>
             </el-col>
         </el-row>
@@ -39,7 +48,7 @@ export default {
 
 <style lang="scss">
 @import "@/style/varStyle.scss";
-$card-height: 200px;
+$card-height: 260px;
 .introduce-card{
     width: 100%;
     .card-main{
@@ -66,6 +75,9 @@ $card-height: 200px;
             -o-transform: rotateZ(360deg);
             -ms-transform: rotateZ(360deg);
             transform: rotateZ(360deg);
+        }
+        .github{
+            margin-top: 20px;
         }
     }
     .introduce-center{

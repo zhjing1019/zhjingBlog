@@ -55,6 +55,7 @@ export default {
 
 <style lang="scss">
     .header-fix{
+        z-index: 100;
         width: 100%;
         height: 60px;
         background-color: #fff;
