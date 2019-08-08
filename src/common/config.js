@@ -3,22 +3,22 @@ export let  labelList = [
     {
         img: 'banner1',
         title: '前端',
-        path: ''
+        path: 'home',
     },
     {
         img: 'banner2',
         title: 'JAVA',
-        path: ''
+        path: 'home',
     },
     {
         img: 'banner4',
         title: 'Python',
-        path: ''
+        path: 'home',
     },
     {
         img: 'banner5',
         title: '安全',
-        path: ''
+        path: 'home',
     }
 ]
 
@@ -37,3 +37,8 @@ export let timeLineList = [{
   }
     
 ]
+
+export let footerInfo = {
+    email: "zhjing1019@gmail.com",
+    right: "© 2019 zhangjing&guoliao"
+}

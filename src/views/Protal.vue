@@ -2,8 +2,8 @@
     <div class="blog-protal">
         <div class="protal-main">
             <el-carousel :interval="1000" type="card" height="400px" indicator-position="none">
-                <el-carousel-item v-for="(item, index) in arr" :key="index" @click="bannerClick(item)">
-                    <div class="banner-main">
+                <el-carousel-item v-for="(item, index) in arr" :key="index">
+                    <div class="banner-main"  @click="bannerClick(item)">
                         <h3 class="banner-title">{{ item.title }}</h3>
                         <img :src="require(`@/img/${item.img}.jpeg`)" alt="">
                     </div>
@@ -11,6 +11,9 @@
             </el-carousel>
             <div class="introduce-main">
                 <introduce-card></introduce-card>
+            </div>
+            <div class="type-div">
+                <type-card></type-card>
             </div>
             <div class="label-list-div">
                 <time-line></time-line>
@@ -20,6 +23,7 @@
 </template>
 <script>
 import IntroduceCard from "@/components/IntroduceCard"
+import TypeCard from "@/components/TypeCard"
 import TimeLine from "@/components/TimeLine"
 import { labelList } from "@/common/config.js"
 export default {
@@ -30,11 +34,12 @@ export default {
     },
     components: {
         IntroduceCard,
-        TimeLine
+        TimeLine,
+        TypeCard,
     },
     methods: {
         bannerClick(item) {
-            console.log(item);
+            this.$router.push({ path: `/${item.path}` });
         },
     }
 }
@@ -79,11 +84,15 @@ export default {
                 transform: scale(1.2); /* 鼠标放到图片上的时候图片按比例放大1.5倍   */
             }
         }
+        .type-div{
+            margin-top: 30px;
+            text-align: center;
+        }
         .introduce-main{
-            margin-top: 20px;
+            margin-top: 30px;
         }
         .label-list-div{
-            margin-top: 30px;
+            margin-top: 40px;
         }
     }
 }

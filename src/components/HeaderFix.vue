@@ -34,11 +34,6 @@ export default {
                     text: '文章',
                     path: 'home',
                 },
-                {
-                    id: '3',
-                    text: '热门',
-                    path: 'protal'
-                },
             ],
             activeName: ''
  
