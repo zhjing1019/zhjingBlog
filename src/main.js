@@ -7,6 +7,12 @@ import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 Vue.config.productionTip = false
 
+window.onload = function() {
+  window.viewportUnitsBuggyfill.init({
+      hacks: window.viewportUnitsBuggyfillHacks
+  });
+}
+
 new Vue({
   router,
   store,

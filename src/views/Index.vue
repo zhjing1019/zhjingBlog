@@ -39,7 +39,11 @@ export default {
 
 
 <style lang="scss">
-
+.blog-index{
+    .main{
+        padding: 0 20px;
+    }
+}
 
   
 </style>

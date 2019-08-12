@@ -52,7 +52,7 @@ $card-height: 260px;
 .introduce-card{
     width: 100%;
     .card-main{
-        height: $card-height;
+        min-height: $card-height;
         padding: 20px;
         text-align: center;
         img{

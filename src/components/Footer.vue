@@ -18,7 +18,7 @@ export default {
 <style lang="scss">
 @import "@/style/varStyle.scss";
 .footer {
-    height: 70px;
+    min-height: 70px;
     margin-top: 30px;
     text-align: center;
     font-size: 12px;

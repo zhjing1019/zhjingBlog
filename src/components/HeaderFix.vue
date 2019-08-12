@@ -71,6 +71,7 @@ export default {
         line-height: 60px;
         border-bottom: 1px solid #f1f1f1;
         box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+        
         .header-main {
             max-width: $max-width;
             margin: 0 auto;
@@ -108,7 +109,7 @@ export default {
             line-height: 45px;
             background: #fff;
             border-bottom: 1px solid #f1f1f1;
-            padding: 0 24px;
+            padding: 0 20px;
             .divider-main-item{
                 max-width: $max-width;
                 margin: 0 auto;
