@@ -50,7 +50,7 @@ export default {
 @import "@/style/varStyle.scss";
 .blog-protal {
     .protal-main{
-        width: 1200px;
+        max-width: $max-width;
         margin: 0 auto;
         padding-top: 70px;
         .banner-main{

@@ -61,6 +61,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/style/varStyle.scss";
     .header-fix{
         z-index: 100;
         width: 100%;
@@ -71,7 +72,7 @@ export default {
         border-bottom: 1px solid #f1f1f1;
         box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
         .header-main {
-            width: 1200px;
+            max-width: $max-width;
             margin: 0 auto;
             .header-search{
                 width: 150px;
@@ -109,7 +110,7 @@ export default {
             border-bottom: 1px solid #f1f1f1;
             padding: 0 24px;
             .divider-main-item{
-                width: 1200px;
+                max-width: $max-width;
                 margin: 0 auto;
             }
         }
