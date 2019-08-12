@@ -4,9 +4,6 @@
             <right-banner></right-banner>
             </div>
             <div class="main-list-item">
-                <div class="main-nav-divider">
-                    <nav-divider></nav-divider>
-                </div>
             <list-item v-for="(item, index) in testData" :key="index"></list-item>
         </div>
     </div>
@@ -14,7 +11,6 @@
 <script>
 import HeaderFix from "@/components/HeaderFix.vue"
 import ListItem from "@/components/ListItem.vue"
-import NavDivider from "@/components/NavDivider.vue"
 import RightBanner from "@/components/RightBanner.vue"
 
 export default {
@@ -25,7 +21,7 @@ export default {
         };
     },
 
-    components: {HeaderFix, ListItem, NavDivider, RightBanner}
+    components: {HeaderFix, ListItem, RightBanner}
 
 }
 </script>
@@ -35,17 +31,9 @@ export default {
 .blog-home{
     width: 1200px;
     margin: 0 auto;
-    padding-top: 75px;
+    padding-top: 120px;
     .main-list-item{
         width: 850px;
-        .main-nav-divider{
-            height: 45px;
-            line-height: 45px;
-            background: #fff;
-            border: 1px solid #f1f1f1;
-            border-bottom: 0;
-            padding: 0 24px;
-        }
     }
     .main-right{
         float: right;

@@ -16,9 +16,14 @@
             </div>
             <img class="logo-img" src="@/img/verterLogo.png" alt="">
         </div>
+        <div v-if="isArt" class="divider-main">
+            <nav-divider class="divider-main-item"></nav-divider>
+        </div>
     </div>
 </template>
 <script>
+import NavDivider from "@/components/NavDivider.vue"
+
 export default {
     data() {
         return {
@@ -38,6 +43,13 @@ export default {
             activeName: ''
  
         };
+    },
+    components: {NavDivider},
+    props: {
+        isArt: {
+            type: Boolean,
+            default: false
+        }
     },
     methods: {
         handleClick() {
@@ -88,6 +100,18 @@ export default {
         .logo-text{
             font-size: 20px;
             color: #007fff;
+        }
+        .divider-main{
+            width: 100%;
+            height: 45px;
+            line-height: 45px;
+            background: #fff;
+            border-bottom: 1px solid #f1f1f1;
+            padding: 0 24px;
+            .divider-main-item{
+                width: 1200px;
+                margin: 0 auto;
+            }
         }
 
     }

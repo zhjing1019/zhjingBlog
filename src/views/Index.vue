@@ -1,7 +1,7 @@
 <template>
     <div class="blog-index">
         <div class="header">
-            <header-fix></header-fix>
+            <header-fix :isArt="isArt"></header-fix>
         </div>
         <div class="main">
             <router-view></router-view>
@@ -19,9 +19,21 @@ import Footer from "@/components/Footer"
 
 export default {
     data() {
-        return {};
+        return {
+            isArt: false
+        };
     },
-    components: {HeaderFix, Footer}
+    components: {HeaderFix, Footer},
+    watch: {
+        $route: {
+            handler: function(val){
+                val.name === "Home" ? this.isArt = true : this.isArt = false
+            },
+            deep: true,
+            immediate: true,
+        }
+    },
+
 }
 </script>
 
