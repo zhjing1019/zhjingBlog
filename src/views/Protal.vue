@@ -1,6 +1,7 @@
 <template>
     <div class="blog-protal">
         <div class="protal-main">
+            
             <el-carousel :interval="1000" type="card" height="400px" indicator-position="none">
                 <el-carousel-item v-for="(item, index) in arr" :key="index">
                     <div class="banner-main"  @click="bannerClick(item)">
@@ -9,11 +10,11 @@
                     </div>
                 </el-carousel-item>
             </el-carousel>
-            <div class="introduce-main">
-                <introduce-card></introduce-card>
-            </div>
             <div class="type-div">
                 <type-card></type-card>
+            </div>
+            <div class="introduce-main">
+                <introduce-card></introduce-card>
             </div>
             <div class="label-list-div">
                 <time-line></time-line>
@@ -65,7 +66,9 @@ export default {
                 transition: all 0.5s; /* 所有的属性变化在0.5s的时间段内完成 */
             }
             h3{
-                width: 300px;
+                max-width: 300px;
+                width: 50%;
+                margin: 0 auto;
                 height: 50px;
                 line-height: 50px;
                 background: rgba(255, 255, 255, 0.65);
@@ -77,7 +80,7 @@ export default {
                 position: absolute;
                 top: 50%;
                 left: 50%;
-                margin-left: -150px;
+                margin-left: -25%;
                 z-index: 2;
             }
             &:hover img{
@@ -95,6 +98,9 @@ export default {
             margin-top: 40px;
         }
     }
+}
+@media screen and (max-width: 800px) {
+
 }
 
   

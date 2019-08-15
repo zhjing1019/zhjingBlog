@@ -1,13 +1,13 @@
 <template>
     <div class="header-fix">
         <div class="header-main">
-            <div class="header-search">
+            <!-- <div class="header-search">
                 <el-input
                     placeholder="请输入搜索内容"
                     prefix-icon="el-icon-search"
                     v-model="searchText">
                 </el-input>
-            </div>
+            </div> -->
 
             <div class="head-tab">
                 <el-tabs v-model="activeName" @tab-click="handleClick">
@@ -117,5 +117,8 @@ export default {
         }
 
     }
+@media screen and (max-width: 800px) {
+}
+
   
 </style>

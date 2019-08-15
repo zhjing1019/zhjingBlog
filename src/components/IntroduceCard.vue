@@ -1,7 +1,7 @@
 <template>
     <div class="introduce-card">
         <el-row>
-            <el-col :span="10" class="introduce-left">
+            <el-col :xs="24" :sm="10" :md="10" :lg="10" :xl="10" class="introduce-left">
                 <el-card shadow="always" class="card-main" >
                     <img :src="require('@/img/guoliaoImg.jpg')" alt="">
                     <p>北漂程序猿</p>
@@ -12,10 +12,10 @@
                     </div>
                 </el-card>
             </el-col>
-            <el-col :span="4" class="introduce-center">
+            <el-col :xs="24" :sm="4" :md="4" :lg="4" :xl="4" class="introduce-center">
                 <img :src="require('@/img/topLogo.png')" alt="">
             </el-col>
-            <el-col :span="10"  class="introduce-right">
+            <el-col :xs="24" :sm="10" :md="10" :lg="10" :xl="10"  class="introduce-right">
                 <el-card shadow="always" class="card-main">
                     <img :src="require('@/img/zhangjingImg.jpg')" alt="">
                     <p>北漂程序媛</p>
