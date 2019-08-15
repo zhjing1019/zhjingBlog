@@ -3,7 +3,7 @@
         <div class="main-list-item">
             <list-item v-for="(item, index) in testData" :key="index"></list-item>
         </div>
-        <div class="main-right">
+        <div class="main-right hidden-xs-only">
             <right-banner></right-banner>
         </div>
         
@@ -37,10 +37,11 @@ export default {
     display: flex;
     .main-list-item{
         width: 850px;
-        margin-right: 20px;
+        
     }
     .main-right{
         width: 330px;
+        margin-left: 20px;
     }
     
 }

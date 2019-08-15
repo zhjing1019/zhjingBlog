@@ -1,8 +1,15 @@
 <template>
     <div class="blog-protal">
         <div class="protal-main">
-            
-            <el-carousel :interval="1000" type="card" height="400px" indicator-position="none">
+            <el-carousel class="hidden-xs-only" :interval="1000" type="card" indicator-position="none" height="400px">
+                <el-carousel-item v-for="(item, index) in arr" :key="index">
+                    <div class="banner-main"  @click="bannerClick(item)">
+                        <h3 class="banner-title">{{ item.title }}</h3>
+                        <img :src="require(`@/img/${item.img}.jpeg`)" alt="">
+                    </div>
+                </el-carousel-item>
+            </el-carousel>
+            <el-carousel class="hidden-sm-and-up" :interval="1000" indicator-position="none" height="30vh">
                 <el-carousel-item v-for="(item, index) in arr" :key="index">
                     <div class="banner-main"  @click="bannerClick(item)">
                         <h3 class="banner-title">{{ item.title }}</h3>
@@ -30,7 +37,7 @@ import { labelList } from "@/common/config.js"
 export default {
     data() {
         return {
-            arr: labelList
+            arr: labelList,
         };
     },
     components: {
