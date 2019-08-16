@@ -1,7 +1,7 @@
 <template>
     <div class="nav-divider">
-        <span v-for="(item, index) in labelList" :key="index">
-            <span class="divider-active" @click="dividerClick(item)">{{item.title}}</span>
+        <span class="nav-divider-item" v-for="(item, index) in labelList" :key="index">
+            <span :class="{'divider-active': item.active === active}" @click="dividerClick(item, index)">{{item.title}}</span>
             <el-divider v-if="index !== labelList.length - 1" direction="vertical"></el-divider>
         </span>
     </div>
@@ -11,11 +11,13 @@ import { labelList } from "@/common/config.js"
 export default {
     data() {
         return {
-            labelList: labelList
+            labelList: labelList,
+            active: 'web'
         };
     },
     methods: {
         dividerClick(data) {
+            this.active = data.active;
             this.$emit('dividerClick', data)
         }
     }
@@ -23,15 +25,17 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/style/varStyle.scss";
 .nav-divider{
     color: #909090;
     font-size: 14px;
     .divider-active{
-        color:#007fff;
+        color:$active-color;
         cursor: pointer;
-        
     }
-
+    .nav-divider-item{
+        cursor: pointer;
+    }
 }
     
   

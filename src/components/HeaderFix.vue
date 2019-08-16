@@ -115,10 +115,5 @@ export default {
                 margin: 0 auto;
             }
         }
-
-    }
-@media screen and (max-width: 800px) {
-}
-
-  
+    } 
 </style>

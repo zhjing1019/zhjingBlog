@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Index from './views/Index.vue'
-import Edit from './views/BlogEdit.vue'
 import Home from './views/Home.vue'
 import Protal from './views/Protal.vue'
 
@@ -28,11 +27,6 @@ export default new Router({
         }
       ],
       redirect: "/protal"
-    },
-    {
-      path: '/edit',
-      name: 'Edit',
-      component: Edit
     }
   ]
 })

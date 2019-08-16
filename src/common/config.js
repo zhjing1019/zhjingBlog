@@ -4,21 +4,25 @@ export let  labelList = [
         img: 'banner1',
         title: '前端',
         path: 'home',
+        active: 'web'
     },
     {
         img: 'banner2',
         title: 'JAVA',
         path: 'home',
+        active: 'java'
     },
     {
         img: 'banner4',
         title: 'Python',
         path: 'home',
+        active: 'python'
     },
     {
         img: 'banner5',
         title: '安全',
         path: 'home',
+        active: 'security'
     }
 ]
 
