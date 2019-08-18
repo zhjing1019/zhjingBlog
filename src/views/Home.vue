@@ -1,11 +1,17 @@
 <template>
     <div class="blog-home">
-        <div class="main-list-item">
-            <list-item v-for="(item, index) in testData" :key="index"></list-item>
+        <div class="main-label">
+            <div v-for="(item, index) in labelArr" :class="{'label-item': true, 'active-label': activeLabel === item.id}" :key="index" @click="labelClick(item)">{{item.label}}</div>
         </div>
-        <div class="main-right hidden-xs-only">
-            <right-banner></right-banner>
+        <div class="blog-main">
+            <div class="main-list-item">
+                <list-item v-for="(item, index) in testData" :key="index"></list-item>
+            </div>
+            <div class="main-right hidden-xs-only">
+                <right-banner></right-banner>
+            </div>
         </div>
+        
         
     </div>
 </template>
@@ -17,12 +23,41 @@ import RightBanner from "@/components/RightBanner.vue"
 export default {
     data() {
         return {
-            testData: ['test', 'test', 'test', 'test', 'test', 'test', 'test']
+            activeLabel: "0",
+            testData: ['test', 'test', 'test', 'test', 'test', 'test', 'test'],
+            labelArr: [
+                {
+                    label: "全部",
+                    id: "0"
+                },
+                {
+                    label: "webpack",
+                    id: "1"
+                },
+                {
+                    label: "webpack",
+                    id: "2"
+                },{
+                    label: "webpack",
+                    id: "3"
+                },{
+                    label: "webpack",
+                    id: "4"
+                },{
+                    label: "webpack",
+                    id: "5"
+                },
+            ]
 
         };
     },
 
-    components: {HeaderFix, ListItem, RightBanner}
+    components: {HeaderFix, ListItem, RightBanner},
+    methods:{
+        labelClick(data) {
+            this.activeLabel = data.id;
+        }
+    }
 
 }
 </script>
@@ -33,16 +68,41 @@ export default {
 .blog-home{
     max-width: $max-width;
     margin: 0 auto;
-    padding-top: 120px;
-    display: flex;
-    .main-list-item{
-        width: 850px;
-        
+    padding-top: 110px;
+    .main-label{
+        width: 100%;
+        margin-bottom: 10px;
+        .label-item{
+            display: inline-block;
+            margin-right: 10px;
+            height: 30px;
+            line-height: 30px;
+            background: #fff;
+            border-radius: 15px;
+            padding: 0 10px;
+            font-size: 12px;
+            color: $theme-color;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .active-label{
+            background: $active-color;
+            color: #fff;
+        }
     }
-    .main-right{
-        width: 330px;
-        margin-left: 20px;
+    .blog-main{
+        width: 100%;
+        display: flex;
+        .main-list-item{
+            width: calc(100% - 350px);
+        }
+        .main-right{
+            width: 330px;
+            margin-left: 20px;
+        }
+    
     }
+    
     
 }
 @media screen and (max-width: 800px) {
