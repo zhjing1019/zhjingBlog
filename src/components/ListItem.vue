@@ -1,5 +1,5 @@
 <template>
-    <div class="list-item">
+    <div class="list-item" @click="articalClick">
         <div class="list-item-date">
             2018-07-11
         </div>
@@ -17,6 +17,11 @@ export default {
     data() {
         return {};
     },
+    methods: {
+        articalClick() {
+            this.$emit('articalClick')
+        }
+    }
 }
 </script>
 

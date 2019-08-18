@@ -5,7 +5,7 @@
         </div>
         <div class="blog-main">
             <div class="main-list-item">
-                <list-item v-for="(item, index) in testData" :key="index"></list-item>
+                <list-item v-for="(item, index) in testData" :key="index" @articalClick="articalClick"></list-item>
             </div>
             <div class="main-right hidden-xs-only">
                 <right-banner></right-banner>
@@ -56,6 +56,9 @@ export default {
     methods:{
         labelClick(data) {
             this.activeLabel = data.id;
+        },
+        articalClick() {
+            this.$router.push({ path: `/detail` });
         }
     }
 
