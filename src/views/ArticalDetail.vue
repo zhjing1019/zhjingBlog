@@ -18,6 +18,7 @@ export default {
 <style lang="scss">
 @import "@/style/varStyle.scss";
 .artical-detail{
+    padding-top: 60px;
 
 }
 
