@@ -4,12 +4,21 @@
             <div v-for="(item, index) in labelArr" :class="{'label-item': true, 'active-label': activeLabel === item.id}" :key="index" @click="labelClick(item)">{{item.label}}</div>
         </div>
         <div class="blog-main">
-            <div class="main-list-item">
-                <list-item v-for="(item, index) in testData" :key="index" @articalClick="articalClick"></list-item>
-            </div>
-            <div class="main-right hidden-xs-only">
-                <right-banner></right-banner>
-            </div>
+            <el-row :gutter="20">
+                <el-col :xs="24" :sm="24" :md="18" :lg="18" :xl="18">
+                    <div class="main-list-item">
+                        <list-item v-for="(item, index) in testData" :key="index" @articalClick="articalClick"></list-item>
+                    </div>
+                </el-col>
+                <el-col :xs="24" :sm="24" :md="6" :lg="6" :xl="6">
+                    <div class="main-right">
+                        <right-banner></right-banner>
+                    </div>
+                </el-col>
+                
+                
+            </el-row>
+            
         </div>
         
         
@@ -95,13 +104,12 @@ export default {
     }
     .blog-main{
         width: 100%;
-        display: flex;
         .main-list-item{
-            width: calc(100% - 350px);
+            width: 100%;
+            margin-bottom: 20px;
         }
         .main-right{
-            width: 330px;
-            margin-left: 20px;
+            width: 100%
         }
     
     }
