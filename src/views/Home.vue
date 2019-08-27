@@ -15,13 +15,8 @@
                         <right-banner></right-banner>
                     </div>
                 </el-col>
-                
-                
             </el-row>
-            
         </div>
-        
-        
     </div>
 </template>
 <script>
