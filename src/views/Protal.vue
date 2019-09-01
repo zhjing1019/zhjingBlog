@@ -3,7 +3,7 @@
         <div class="protal-main">
             <el-carousel class="hidden-xs-only" :interval="1000" type="card" indicator-position="none" height="400px">
                 <el-carousel-item v-for="(item, index) in arr" :key="index">
-                    <div class="banner-main"  @click="bannerClick(item)">
+                    <div class="banner-main"  @click="typeCardClick(item)">
                         <h3 class="banner-title">{{ item.name }}</h3>
                         <img :src="require(`@/img/${bannerList[index] ? bannerList[index] : 'banner1'}.jpeg`)" alt="">
                     </div>
@@ -11,14 +11,14 @@
             </el-carousel>
             <el-carousel class="hidden-sm-and-up" :interval="1000" indicator-position="none" height="30vh">
                 <el-carousel-item v-for="(item, index) in arr" :key="index">
-                    <div class="banner-main"  @click="bannerClick(item)">
+                    <div class="banner-main"  @click="typeCardClick(item)">
                         <h3 class="banner-title">{{ item.name }}</h3>
                         <img :src="require(`@/img/${bannerList[index] ? bannerList[index] : 'banner1'}.jpeg`)" alt="">
                     </div>
                 </el-carousel-item>
             </el-carousel>
             <div class="type-div">
-                <type-card :labelList="arr"></type-card>
+                <type-card :labelList="arr" @typeCardClick="typeCardClick"></type-card>
             </div>
             <div class="introduce-main">
                 <introduce-card></introduce-card>
@@ -49,9 +49,10 @@ export default {
     },
 
     methods: {
-        bannerClick(item) {
+        typeCardClick(item) {
             this.$router.push({ path: `/home`, query: { ...item } });
-        },
+            this.$emit("typeCardClick", item)
+        }
 
     }
 }

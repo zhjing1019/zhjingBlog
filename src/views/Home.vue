@@ -1,8 +1,8 @@
 <template>
     <div class="blog-home">
         <div class="main-label">
-            <div :class="{'label-item': true, 'active-label': activeLabel === 'all'}" @click="labelClick('all')">全部</div>
-            <div v-for="(item, index) in labelData['tags']" :class="{'label-item': true, 'active-label': activeLabel === item.name}" :key="index" @click="labelClick(item)">{{item.name}}</div>
+            <div :class="{'label-item': true, 'active-label': activeTag === 'all'}" @click="labelClick('all')">全部</div>
+            <div v-for="(item, index) in labelData['tags']" :class="{'label-item': true, 'active-label': activeTag === item.name}" :key="index" @click="labelClick(item)">{{item.name}}</div>
         </div>
         <div class="blog-main">
             <el-row :gutter="20">
@@ -24,48 +24,32 @@
 import HeaderFix from "@/components/HeaderFix.vue"
 import ListItem from "@/components/ListItem.vue"
 import RightBanner from "@/components/RightBanner.vue"
-import axios from "axios"
 
 export default {
     data() {
         return {
             activeLabel: "0",
             testData: ['test', 'test', 'test', 'test', 'test', 'test', 'test'],
-            labelArr: [
-                {
-                    label: "全部",
-                    id: "0"
-                },
-                {
-                    label: "webpack",
-                    id: "1"
-                },
-                {
-                    label: "webpack",
-                    id: "2"
-                },{
-                    label: "webpack",
-                    id: "3"
-                },{
-                    label: "webpack",
-                    id: "4"
-                },{
-                    label: "webpack",
-                    id: "5"
-                },
-            ]
-
         };
     },
     props: {
         arr: Array,
-        labelData: Object
+        labelData: Object,
+        activeTag: String
+    },
+    watch: {
+        labelData: {
+            deep: true,
+            handler(val) {
+                console.log(val);
+                this.labelData = val;
+            }
+        }
     },
     components: {HeaderFix, ListItem, RightBanner},
     methods:{
-
         labelClick(data) {
-            data === "all" ? this.activeLabel = 'all' : this.activeLabel = data.name;
+            this.$emit("tagClick", data)
         },
         articalClick() {
             this.$router.push({ path: `/detail` });

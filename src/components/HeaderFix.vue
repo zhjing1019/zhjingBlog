@@ -9,7 +9,7 @@
             <img class="logo-img" src="@/img/verterLogo.png" alt="">
         </div>
         <div v-if="isArt" class="divider-main">
-            <nav-divider class="divider-main-item" :arr="arr" @dividerClick="dividerClick"></nav-divider>
+            <nav-divider class="divider-main-item" :labelData="labelData" :arr="arr" @dividerClick="dividerClick" :activeType="activeType"></nav-divider>
         </div>
     </div>
 </template>
@@ -31,7 +31,7 @@ export default {
                     path: 'home',
                 },
             ],
-            activeName: ''
+            activeName: this.actHeader
  
         };
     },
@@ -41,7 +41,18 @@ export default {
             type: Boolean,
             default: false
         },
-        arr: Array
+        arr: Array,
+        activeType: String,
+        labelData:Object,
+        actHeader: String
+    },
+    watch: {
+        actHeader: {
+            immediate: true,
+            handler(val) {
+                this.activeName = val
+            }
+        }
     },
     methods: {
         handleClick() {

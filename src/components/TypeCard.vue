@@ -21,7 +21,7 @@ export default {
     },
     methods: {
         cardClick(item) {
-            this.$router.push({ path: `/home`, query: { ...item } });
+            this.$emit("typeCardClick", item)
         }
     }
 }

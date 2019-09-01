@@ -1,7 +1,7 @@
 <template>
     <div class="nav-divider">
         <span class="nav-divider-item" v-for="(item, index) in arr" :key="index">
-            <span :class="{'divider-active': item.name === active}" @click="dividerClick(item, index)">{{item.name}}</span>
+            <span :class="{'divider-active': item.name === activeType}" @click="dividerClick(item, index)">{{item.name}}</span>
             <el-divider v-if="index !== arr.length - 1" direction="vertical"></el-divider>
         </span>
     </div>
@@ -14,11 +14,12 @@ export default {
         };
     },
     props: {
-        arr: Array
+        arr: Array,
+        activeType: String,
+        labelData: Object
     },
     methods: {
         dividerClick(data) {
-            this.active = data.name;
             this.$emit('dividerClick', data)
         }
     }
