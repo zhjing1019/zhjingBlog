@@ -4,21 +4,21 @@
             <el-carousel class="hidden-xs-only" :interval="1000" type="card" indicator-position="none" height="400px">
                 <el-carousel-item v-for="(item, index) in arr" :key="index">
                     <div class="banner-main"  @click="bannerClick(item)">
-                        <h3 class="banner-title">{{ item.title }}</h3>
-                        <img :src="require(`@/img/${item.img}.jpeg`)" alt="">
+                        <h3 class="banner-title">{{ item.name }}</h3>
+                        <img :src="require(`@/img/${bannerList[index] ? bannerList[index] : 'banner1'}.jpeg`)" alt="">
                     </div>
                 </el-carousel-item>
             </el-carousel>
             <el-carousel class="hidden-sm-and-up" :interval="1000" indicator-position="none" height="30vh">
                 <el-carousel-item v-for="(item, index) in arr" :key="index">
                     <div class="banner-main"  @click="bannerClick(item)">
-                        <h3 class="banner-title">{{ item.title }}</h3>
-                        <img :src="require(`@/img/${item.img}.jpeg`)" alt="">
+                        <h3 class="banner-title">{{ item.name }}</h3>
+                        <img :src="require(`@/img/${bannerList[index] ? bannerList[index] : 'banner1'}.jpeg`)" alt="">
                     </div>
                 </el-carousel-item>
             </el-carousel>
             <div class="type-div">
-                <type-card></type-card>
+                <type-card :labelList="arr"></type-card>
             </div>
             <div class="introduce-main">
                 <introduce-card></introduce-card>
@@ -33,22 +33,26 @@
 import IntroduceCard from "@/components/IntroduceCard"
 import TypeCard from "@/components/TypeCard"
 import TimeLine from "@/components/TimeLine"
-import { labelList } from "@/common/config.js"
 export default {
     data() {
         return {
-            arr: labelList,
+            bannerList: ['banner1', 'banner2', 'banner3', 'banner4', 'banner5']
         };
+    },
+    props: {
+        arr: Array
     },
     components: {
         IntroduceCard,
         TimeLine,
         TypeCard,
     },
+
     methods: {
         bannerClick(item) {
-            this.$router.push({ path: `/${item.path}` });
+            this.$router.push({ path: `/home`, query: { ...item } });
         },
+
     }
 }
 </script>

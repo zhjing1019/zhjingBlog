@@ -1,14 +1,6 @@
 <template>
     <div class="header-fix">
         <div class="header-main">
-            <!-- <div class="header-search">
-                <el-input
-                    placeholder="请输入搜索内容"
-                    prefix-icon="el-icon-search"
-                    v-model="searchText">
-                </el-input>
-            </div> -->
-
             <div class="head-tab">
                 <el-tabs v-model="activeName" @tab-click="handleClick">
                     <el-tab-pane v-for="(item, index) in headerNav" :key="index" :label="item.text" :name="`${index}`"></el-tab-pane> 
@@ -17,7 +9,7 @@
             <img class="logo-img" src="@/img/verterLogo.png" alt="">
         </div>
         <div v-if="isArt" class="divider-main">
-            <nav-divider class="divider-main-item"></nav-divider>
+            <nav-divider class="divider-main-item" :arr="arr" @dividerClick="dividerClick"></nav-divider>
         </div>
     </div>
 </template>
@@ -27,7 +19,6 @@ import NavDivider from "@/components/NavDivider.vue"
 export default {
     data() {
         return {
-            searchText: "",
             headerNav:[
                 {
                     id: '1',
@@ -49,11 +40,16 @@ export default {
         isArt: {
             type: Boolean,
             default: false
-        }
+        },
+        arr: Array
     },
     methods: {
         handleClick() {
             this.$router.push({ path: `/${this.headerNav[this.activeName].path}` });
+        },
+        dividerClick(data) {
+            this.$emit('dividerClick', data)
+
         }
  
     }

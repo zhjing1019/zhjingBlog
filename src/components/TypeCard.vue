@@ -3,24 +3,25 @@
         <el-row :gutter="12">
             <el-col class="type-card-item"  :xs="24" :sm="6" :md="6" :lg="6" :xl="6" v-for="(item, index) in labelList" :key="index">
                 <el-card shadow="hover" >
-                    <p @click="cardClick(item)"> {{item.title}}</p>
+                    <p @click="cardClick(item)"> {{item.name}}</p>
                 </el-card>
             </el-col>
         </el-row>
     </div>
 </template>
 <script>
-import { labelList } from "@/common/config.js"
 export default {
     data() {
         return {
-            labelList: labelList
+            
         };
+    },
+    props: {
+        labelList: Array,
     },
     methods: {
         cardClick(item) {
-            this.$router.push({ path: `/${item.path}` });
-
+            this.$router.push({ path: `/home`, query: { ...item } });
         }
     }
 }
