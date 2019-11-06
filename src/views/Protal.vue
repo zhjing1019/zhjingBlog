@@ -1,6 +1,14 @@
 <template>
+    <!-- 首页 -->
     <div class="blog-protal">
         <div class="protal-main">
+            <h1 class="ml10">
+            <span class="text-wrapper">
+                <span class="letters">Welcome to our blog</span>
+            </span>
+            </h1>
+
+
             <el-carousel class="hidden-xs-only" :interval="1000" type="card" indicator-position="none" height="400px">
                 <el-carousel-item v-for="(item, index) in arr" :key="index">
                     <div class="banner-main"  @click="typeCardClick(item)">
@@ -33,6 +41,9 @@
 import IntroduceCard from "@/components/IntroduceCard"
 import TypeCard from "@/components/TypeCard"
 import TimeLine from "@/components/TimeLine"
+import anime from 'animejs/lib/anime.es.js';
+
+
 export default {
     data() {
         return {
@@ -47,13 +58,33 @@ export default {
         TimeLine,
         TypeCard,
     },
+    mounted() {
+        this.letterAnimation()
+    },
 
     methods: {
         typeCardClick(item) {
             this.$router.push({ path: `/home`, query: { ...item } });
             this.$emit("typeCardClick", item)
-        }
+        },
+        letterAnimation() {
+            var textWrapper = document.querySelector('.ml10 .letters');
+            textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
+            anime.timeline({loop: true})
+            .add({
+                targets: '.ml10 .letter',
+                rotateY: [-90, 0],
+                duration: 1300,
+                delay: (el, i) => 45 * i
+            }).add({
+                targets: '.ml10',
+                opacity: 0,
+                duration: 1000,
+                easing: "easeOutExpo",
+                delay: 1000
+            });
+        }
     }
 }
 </script>
@@ -62,6 +93,30 @@ export default {
 <style lang="scss">
 @import "@/style/varStyle.scss";
 .blog-protal {
+   .ml10 {
+    position: relative;
+    font-weight: 900;
+    font-size: 4em;
+    text-align: center;
+
+    }
+
+    .ml10 .text-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-top: 0.2em;
+    padding-right: 0.05em;
+    padding-bottom: 0.1em;
+    overflow: hidden;
+    }
+
+    .ml10 .letter {
+    display: inline-block;
+    line-height: 1em;
+    transform-origin: 0 0;
+    color: #C0C4CC;
+    }
+
     .protal-main{
         max-width: $max-width;
         margin: 0 auto;

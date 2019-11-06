@@ -41,7 +41,6 @@ export default {
         labelData: {
             deep: true,
             handler(val) {
-                console.log(val);
                 this.labelData = val;
             }
         }
